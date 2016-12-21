@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link id="stylesheet" rel=stylesheet type=text/css href="{{ url_for('static', filename='homeStyle.css') }}">
+		<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
+		<script src="{{ url_for('static', filename='myJS.js') }}"></script>
+
+		{% if title %}
+			<title>{{ title }} - Homepage</title>
+		{% else %}
+			<title>Homepage</title>
+		{% endif %}
+	</head>
+	<body>
+		<div id="page-container">
+		<div id="header-section">
+			<div id="logoThing" onmouseover="applyColor()">
+				C
+			</div>
+
+			<ul id="header-list">
+				{% for item in headerItems %}
+				<li class="header-list-item">
+					<a href="#" class="header-text">
+						{{ item.item }}
+					</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="section-spacing">
+		</div>
+		<div id="body-section">
+			<div id="navigation">
+				search<br>sort<br>
+			</div>
+			{% block content %}{% endblock %}
+		</div>
+	</body>
+</html>

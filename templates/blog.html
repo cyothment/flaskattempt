@@ -1,0 +1,16 @@
+{% extends "home.html" %}
+{% block content %}
+	<div class="post-section">
+    {% for post in posts %}
+    	<div class="post-title">
+    		{{ post.title }}
+    	</div>
+    	<div class="post-date">
+    		{{ post.date }}
+    	</div>
+    	<div class="post-content">
+    		{{ post.content }}
+    	</div>
+    {% endfor %}
+    </div>
+{% endblock %}
